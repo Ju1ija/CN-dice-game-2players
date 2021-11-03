@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Dice Game (2 Players)</title>
+  </head>
+
+  <body>
+
+    <p>number of players: 2</p>
+    <p class="size-1">click "new game" to begin</p>
+
+    <section>
+
+      <div class="card" id="card-1">
+        <p class="size-2" id="player-1">player 1</p>
+        <p>final score:</p>
+        <p class="size-2" id="final-score-player-1">0</p>
+        <p>current score:</p>
+        <p class="size-3" id="current-score-player-1">0</p>
+      </div>
+
+      <div class="buttons">
+
+        <button id="new-game">
+          <i class="bi bi-plus-circle"></i>
+          <p>new game</p>
+        </button>
+
+        <div id="dice"></div>
+
+        <section>
+
+          <button id="roll">
+            <i class="bi bi-arrow-repeat"></i>
+            <p>roll the dice</p>
+          </button>
+
+          <button id="hold">
+            <i class="bi bi-arrow-down-circle"></i>
+            <p>hold</p>
+          </button>
+
+        </section>
+
+      </div>
+
+      <div class="card" id="card-2">
+        <p class="size-2" id="player-2">player 2</p>
+        <p>final score:</p>
+        <p class="size-2" id="final-score-player-2">0</p>
+        <p>current score:</p>
+        <p class="size-3" id="current-score-player-2">0</p>
+      </div>
+
+    </section>
+
+    <script src="app.js"></script>
+
+  </body>
+
+</html>
