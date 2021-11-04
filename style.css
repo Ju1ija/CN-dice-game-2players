@@ -29,8 +29,16 @@ section {
   justify-content: center;
   width: 240px;
   height: 350px;
-  margin: 50px 100px;
+  margin: 50px 0;
   border-radius: 6px;
+}
+
+#card-1 {
+  margin-right: 100px;
+}
+
+#card-2 {
+  margin-left: 100px;
 }
 
 .buttons {
@@ -86,6 +94,54 @@ button:active {
   font-size: 120px;
 }
 
+#roll {
+  width: 200px;
+}
+
 #roll, #hold {
   visibility: hidden;
+}
+
+@media screen and (min-width: 850px) and (max-width: 950px) {
+  #card-1 {
+    margin-right: 45px;
+  }
+  #card-2 {
+    margin-left: 45px;
+  }
+}
+
+@media screen and (max-width: 849px) {
+  body {
+    height: auto;
+  }
+  section {
+    flex-direction: column;
+  }
+  .card {
+    width: 180px;
+    height: 280px;
+  }
+  #card-1, #card-2 {
+    margin: 50px 0;
+  }
+  .buttons {
+    height: 300px;
+  }
+  .size-1 {
+    font-size: 40px;
+    margin: 30px 20px 10px 20px;
+  }
+  .size-2 {
+    font-size: 30px;
+  }
+  #dice {
+    font-size: 90px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  body {
+    height: auto;
+  }
 }
