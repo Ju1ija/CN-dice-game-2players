@@ -1,3 +1,5 @@
+const card1 = document.getElementById("card-1");
+const card2 = document.getElementById("card-2");
 const player1 = document.getElementById("player-1");
 const player2 = document.getElementById("player-2");
 const finalScore1 = document.getElementById("final-score-player-1");
@@ -22,63 +24,64 @@ newGame.addEventListener("click", () => {
   finalScore2.innerHTML = 0;
   currentScore1.innerHTML = 0;
   currentScore2.innerHTML = 0;
-  dice.innerHTML = "";
-  currentPlayer = 1;
   finalCurrentScore = 0;
   finalFinalScore1 = 0;
   finalFinalScore2 = 0;
-  document.getElementById("card-1").style.transform = "scale(1)";
-  document.getElementById("card-1").style.color = "#000000";
-  document.getElementById("card-1").style.boxShadow = "none";
-  document.getElementById("card-2").style.transform = "scale(1)";
-  document.getElementById("card-2").style.color = "#000000";
-  document.getElementById("card-2").style.boxShadow = "none";
-  roll.style.display = "flex";
-  hold.style.display = "flex";
+  currentPlayer = 1;
+  card1.style.transform = "scale(1)";
+  card1.style.color = "#000000";
+  card1.style.boxShadow = "none";
+  card2.style.transform = "scale(1)";
+  card2.style.color = "#000000";
+  card2.style.boxShadow = "none";
+  dice.innerHTML = "";
+  roll.style.visibility = "visible";
+  hold.style.visibility = "hidden";
 });
 
 roll.addEventListener("click", () => {
-
-  if (currentPlayer == 1) {
-    document.getElementById("card-1").style.transform = "scale(1.3)";
-    document.getElementById("card-1").style.color = "#3D2AA4";
-    document.getElementById("card-1").style.boxShadow = "5px 5px 8px #3D2AA4";
-    document.getElementById("card-2").style.transform = "scale(1)";
-    document.getElementById("card-2").style.color = "#000000";
-    document.getElementById("card-2").style.boxShadow = "none";
-  } else {
-    document.getElementById("card-2").style.transform = "scale(1.3)";
-    document.getElementById("card-2").style.color = "#3D2AA4";
-    document.getElementById("card-2").style.boxShadow = "5px 5px 8px #3D2AA4";
-    document.getElementById("card-1").style.transform = "scale(1)";
-    document.getElementById("card-1").style.color = "#000000";
-    document.getElementById("card-1").style.boxShadow = "none";
-  }
-
   let diceId = Math.floor(Math.random() * 6);
   let currentDice = diceList[diceId];
   let currentScore = diceId + 1;
   dice.innerHTML = `${currentDice}`;
   finalCurrentScore += currentScore;
-
   if (currentPlayer == 1) {
+    card1.style.transform = "scale(1.3)";
+    card1.style.color = "#3D2AA4";
+    card1.style.boxShadow = "5px 5px 8px #3D2AA4";
+    card2.style.transform = "scale(1)";
+    card2.style.color = "#000000";
+    card2.style.boxShadow = "none";
     currentScore1.innerHTML = `${finalCurrentScore}`;
     if (currentScore == 1) {
+      hold.style.visibility = "hidden";
+      finalCurrentScore = 0;
       currentScore1.innerHTML = 0;
       currentPlayer = 2;
-      finalCurrentScore = 0;
+    } else {
+      hold.style.visibility = "visible";
     }
   } else {
+    card2.style.transform = "scale(1.3)";
+    card2.style.color = "#3D2AA4";
+    card2.style.boxShadow = "5px 5px 8px #3D2AA4";
+    card1.style.transform = "scale(1)";
+    card1.style.color = "#000000";
+    card1.style.boxShadow = "none";
     currentScore2.innerHTML = `${finalCurrentScore}`;
     if (currentScore == 1) {
+      hold.style.visibility = "hidden";
+      finalCurrentScore = 0;
       currentScore2.innerHTML = 0;
       currentPlayer = 1;
-      finalCurrentScore = 0;
+    } else {
+      hold.style.visibility = "visible";
     }
   }
 });
 
 hold.addEventListener("click", () => {
+  hold.style.visibility = "hidden";
   if (currentPlayer == 1) {
     finalFinalScore1 += finalCurrentScore;
     finalScore1.innerHTML = `${finalFinalScore1}`;
@@ -87,9 +90,8 @@ hold.addEventListener("click", () => {
     currentPlayer = 2;
     if (finalFinalScore1 >= 35) {
       player1.innerHTML = `winner! ${trophy}`;
-      roll.style.display = "none";
-      hold.style.display = "none";
       dice.innerHTML = "";
+      roll.style.visibility = "hidden";
     }
   } else {
     finalFinalScore2 += finalCurrentScore;
@@ -99,9 +101,8 @@ hold.addEventListener("click", () => {
     currentPlayer = 1;
     if (finalFinalScore2 >= 35) {
       player2.innerHTML = `winner! ${trophy}`;
-      roll.style.display = "none";
-      hold.style.display = "none";
       dice.innerHTML = "";
+      roll.style.visibility = "hidden";
     }
   }
 });

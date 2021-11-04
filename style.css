@@ -1,34 +1,24 @@
 body {
   background: linear-gradient(90deg, #3D2AA4, #E5A7F2);
   height: 100vh;
-  text-transform: uppercase;
-  color: #FFFFFF;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: 'Amatic SC', cursive;
+  text-transform: uppercase;
   font-size: 20px;
-  font-weight: 700;
   text-align: center;
+  color: #FFFFFF;
+}
+
+p {
+  margin: 0;
 }
 
 section {
   display: flex;
   align-items: center;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 350px;
-}
-
-.buttons section {
-  display: flex;
-  flex-direction: column;
-  margin-top: 5px;
 }
 
 .card {
@@ -39,8 +29,42 @@ section {
   justify-content: center;
   width: 240px;
   height: 350px;
-  margin: 20px 100px;
+  margin: 50px 100px;
   border-radius: 6px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+}
+
+.buttons section {
+  flex-direction: column;
+}
+
+button {
+  display: flex;
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 6px;
+  margin: 5px 0;
+}
+
+button i {
+  margin-right: 15px;
+}
+
+button:hover {
+  color: #3D2AA4;
+  box-shadow: 1px 1px 8px #3D2AA4;
+}
+
+button:active {
+  color: #E5A7F2;
 }
 
 .size-1 {
@@ -58,34 +82,10 @@ section {
   margin: 20px 0;
 }
 
-p {
-  margin: 0;
-}
-
-#dice i {
+#dice {
   font-size: 120px;
 }
 
-button {
-  font-family: 'Amatic SC', cursive;
-  font-size: 25px;
-  font-weight: 700;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 6px;
-  margin: 5px 0;
-  display: flex;
-}
-
-button i {
-  margin-right: 15px;
-}
-
-button:hover {
-  color: #3D2AA4;
-  box-shadow: 1px 1px 8px #3D2AA4;
-}
-
-button:active {
-  color: #E5A7F2;
+#roll, #hold {
+  visibility: hidden;
 }
